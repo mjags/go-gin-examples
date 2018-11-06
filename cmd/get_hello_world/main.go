@@ -9,5 +9,11 @@ func main() {
 			"message": "Hello World !!!",
 		})
 	})
+	r.GET("/hello/:name", func(c *gin.Context) {
+		name := c.Param("name")
+		c.JSON(200, gin.H{
+			"message": "Hello," + name + " !!!",
+		})
+	})
 	r.Run() // listen and serve on http://localhost:8080/hello
 }
